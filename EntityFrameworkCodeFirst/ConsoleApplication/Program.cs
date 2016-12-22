@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,17 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+        }
+
+        public static void RunExampleForBlog()
+        {
+            var blog = new Blog { BloggerName = "Janek Testowy", Title = "Testowy tytulik" };
+
+            var context = new Context();
+
+            context.Blogs.Add(blog);
+
+            context.SaveChanges();
         }
     }
 }
