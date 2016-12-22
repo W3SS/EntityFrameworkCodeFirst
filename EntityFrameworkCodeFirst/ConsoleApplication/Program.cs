@@ -12,7 +12,7 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            //RunExampleForBlog();
+            RunExampleForBlog();
             RunExampleForPost();
         }
 
