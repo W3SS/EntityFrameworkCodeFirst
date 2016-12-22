@@ -12,6 +12,8 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+            //RunExampleForBlog();
+            RunExampleForPost();
         }
 
         public static void RunExampleForBlog()
@@ -22,6 +24,16 @@ namespace ConsoleApplication
 
             context.Blogs.Add(blog);
 
+            context.SaveChanges();
+        }
+
+        public static void RunExampleForPost()
+        {
+            var context = new Context();
+            var persistenceBlog = context.Blogs.Find(1);
+            var post = new Post { Blog = persistenceBlog, Title = "Post title", Content = "Test content" };
+
+            context.Posts.Add(post);
             context.SaveChanges();
         }
     }
