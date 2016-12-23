@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCodeFirst", "EntityFrameworkCodeFirst\EntityFrameworkCodeFirst.csproj", "{0D1E70DF-98F2-4339-8241-6305D3DF6261}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{A607A899-E25A-4E9B-9BF8-09B354F80F8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4C1D982A-0EA3-4734-B3AF-F92B6A40C1CC}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0D1E70DF-98F2-4339-8241-6305D3DF6261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D1E70DF-98F2-4339-8241-6305D3DF6261}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D1E70DF-98F2-4339-8241-6305D3DF6261}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D1E70DF-98F2-4339-8241-6305D3DF6261}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A607A899-E25A-4E9B-9BF8-09B354F80F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A607A899-E25A-4E9B-9BF8-09B354F80F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A607A899-E25A-4E9B-9BF8-09B354F80F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -2,6 +2,7 @@
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,16 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer(new MyDBInitializer());
+
             RunExampleForBlog();
             RunExampleForPost();
         }
 
         public static void RunExampleForBlog()
         {
-            var blog = new Blog { BloggerName = "Janek Testowy", Title = "Testowy tytulik" };
+            var blog = new Blog { BloggerName = "Janek Testowy", Title = "Testowy tytulik", DateOfCreation = DateTime.Now };
 
             var context = new Context();
 

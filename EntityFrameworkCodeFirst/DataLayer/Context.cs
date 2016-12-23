@@ -23,7 +23,7 @@ namespace DataLayer
             modelBuilder.Entity<Blog>().HasKey(m => m.Id);
             modelBuilder.Entity<Blog>().Property(m => m.Title).HasMaxLength(20);
             modelBuilder.Entity<Blog>().Property(m => m.BloggerName).IsRequired();
-
+            
             //modelBuilder.Entity<Blog>().Map(mapp =>
             //{
             //    mapp.Property(p => p.Title).HasColumnName("BlogTitle");
