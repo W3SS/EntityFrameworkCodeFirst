@@ -17,12 +17,12 @@ namespace DataLayer
                 new Alias_DataAnnotationsExample
                 {
                     Name = "testName", Bio = "TestBio", UserName = "Test User Name", Email = "test@test.com", CreateDate = DateTime.Now,
-                    Tweets = new List<Tweet_DataAnnotationsExample> {new Tweet_DataAnnotationsExample {Content = "Test tweets content", CreateDate = DateTime.Now } }
+                    Tweets = new List<Tweet_DataAnnotationsExample> {new Tweet_DataAnnotationsExample {Content = "Test tweets content", CreateDate = DateTime.Now } },
+                    Privacy = new Privacy_DataAnnotationsExample {Test = 1 }
                 }
             };
 
             context.Aliases.AddRange(alias);
-            //alias.ForEach(x => context.Aliases.Add(x));
 
             base.Seed(context);
         }

@@ -49,7 +49,7 @@ namespace ConsoleApplication
         public static void RunSimpleForAllias()
         {
             var context = new Context();
-            var alias = new Alias_DataAnnotationsExample { Name = "Test", CreateDate = DateTime.Now };
+            var alias = new Alias_DataAnnotationsExample { Name = "Test", CreateDate = DateTime.Now, Privacy = new Privacy_DataAnnotationsExample { Test = 2 } };
             context.Aliases.Add(alias);
             context.SaveChanges();
         }
