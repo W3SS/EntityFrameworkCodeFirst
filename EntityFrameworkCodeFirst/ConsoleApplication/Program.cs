@@ -14,10 +14,15 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
-            Database.SetInitializer(new MyDBInitializer());
+            //Database.SetInitializer(new MyDBInitializer());
 
-            RunExampleForBlog();
-            RunExampleForPost();
+            //RunExampleForBlog();
+            //RunExampleForPost();
+
+
+            Database.SetInitializer(new MyDBInitializer_DataAnnotationsExample());
+
+            RunSimpleForAllias();
         }
 
         public static void RunExampleForBlog()
@@ -38,6 +43,14 @@ namespace ConsoleApplication
             var post = new Post { Blog = persistenceBlog, Title = "Post title", Content = "Test content" };
 
             context.Posts.Add(post);
+            context.SaveChanges();
+        }
+
+        public static void RunSimpleForAllias()
+        {
+            var context = new Context();
+            var alias = new Alias_DataAnnotationsExample { Name = "Test", CreateDate = DateTime.Now };
+            context.Aliases.Add(alias);
             context.SaveChanges();
         }
     }

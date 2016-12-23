@@ -17,6 +17,8 @@ namespace DataLayer
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Alias_DataAnnotationsExample> Aliases { get; set; }
+        public DbSet<Tweet_DataAnnotationsExample> Tweets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="MyDBInitializer.cs" />
+    <Compile Include="MyDBInitializer_DataAnnotationsExample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
