@@ -59,7 +59,7 @@ namespace ConsoleApplication
         public static void RunExampleForAliasFluentConfig()
         {
             var context = new Context();
-            var alias = new Alias_FluentConfig { Name = "Test", CreateDate = DateTime.Now };
+            var alias = new Alias_FluentConfig { Name = "Test", CreateDate = DateTime.Now, Privacy = new Privacy_FluentConfig { Test = "test value" } };
 
             context.Aliases_FluentConfig.Add(alias);
 

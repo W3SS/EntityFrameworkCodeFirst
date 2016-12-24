@@ -41,13 +41,32 @@ namespace DataLayer
             modelBuilder.Entity<Alias_FluentConfig>()
                 .Property(p => p.CreateDate)
                 .HasColumnName("StartDate")
-                .HasColumnOrder(3)
+                //.HasColumnOrder(3)
                 .HasColumnType("date")
                 .IsRequired();
             modelBuilder.Entity<Alias_FluentConfig>()
                 .Property(p => p.Name)
                 .IsFixedLength() //in db is nchar type
                 .IsMaxLength();
+            modelBuilder.ComplexType<Privacy_FluentConfig>().Property(p => p.Test).HasColumnName("TestingPrivacy");
+            modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            //if you would like to use bottom configu you should comment code above. Because you mapping entity Alias_FluentConfig not once!
+            //-----------------------------------------------------------------------------------------------------------------------------
+            modelBuilder.Entity<Alias_FluentConfig>()
+                .Map(mapping =>
+                {
+                    mapping.Properties(p => new { p.AliasKey, p.UserName });
+                    mapping.ToTable("AliasFirstTable");
+                    
+                })
+                .Map(mapping =>
+                {
+                    mapping.Properties(p => new { p.AliasKey, p.Email });
+                    mapping.ToTable("AliasSecondTable");
+                });
+            modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
 
         }
     }

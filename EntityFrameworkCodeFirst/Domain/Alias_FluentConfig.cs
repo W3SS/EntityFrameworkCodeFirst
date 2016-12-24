@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Domain
 {
     public class Alias_FluentConfig
     {
+        [Key]
         public int AliasKey { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
@@ -16,5 +18,7 @@ namespace Domain
         public DateTime? CreateDate { get; set; }
         public byte[] Avatar { get; set; }
         public byte[] RowVersion { get; set; }
+        public Privacy_FluentConfig Privacy { get; set; }
+        public PrivacyToIgnore_FluentConfig PrivacyToIgnore { get; set; }
     }
 }
