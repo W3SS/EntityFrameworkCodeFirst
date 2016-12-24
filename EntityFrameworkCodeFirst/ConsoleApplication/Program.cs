@@ -15,14 +15,16 @@ namespace ConsoleApplication
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
             //Database.SetInitializer(new MyDBInitializer());
+            Database.SetInitializer(new DropCreateDatabaseAlways<Context>());
 
             //RunExampleForBlog();
             //RunExampleForPost();
 
+            //Database.SetInitializer(new MyDBInitializer_DataAnnotationsExample());
 
-            Database.SetInitializer(new MyDBInitializer_DataAnnotationsExample());
+            //RunSimpleForAllias();
 
-            RunSimpleForAllias();
+            RunExampleForAliasFluentConfig();
         }
 
         public static void RunExampleForBlog()
@@ -51,6 +53,16 @@ namespace ConsoleApplication
             var context = new Context();
             var alias = new Alias_DataAnnotationsExample { Name = "Test", CreateDate = DateTime.Now, Privacy = new Privacy_DataAnnotationsExample { Test = 2 } };
             context.Aliases.Add(alias);
+            context.SaveChanges();
+        }
+
+        public static void RunExampleForAliasFluentConfig()
+        {
+            var context = new Context();
+            var alias = new Alias_FluentConfig { Name = "Test", CreateDate = DateTime.Now };
+
+            context.Aliases_FluentConfig.Add(alias);
+
             context.SaveChanges();
         }
     }
