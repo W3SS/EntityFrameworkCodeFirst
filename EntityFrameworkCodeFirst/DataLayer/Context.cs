@@ -51,23 +51,44 @@ namespace DataLayer
             modelBuilder.ComplexType<Privacy_FluentConfig>().Property(p => p.Test).HasColumnName("TestingPrivacy");
             modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
 
-            //-----------------------------------------------------------------------------------------------------------------------------
-            //if you would like to use bottom configu you should comment code above. Because you mapping entity Alias_FluentConfig not once!
-            //-----------------------------------------------------------------------------------------------------------------------------
-            modelBuilder.Entity<Alias_FluentConfig>()
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // if you would like to use bottom configuration with Alias_FluentConfig as split entity
+            // you should comment code above. 
+            // Because you mapping entity Alias_FluentConfig not once!
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            ////modelBuilder.Entity<Alias_FluentConfig>()
+            ////    .Map(mapping =>
+            ////    {
+            ////        mapping.Properties(p => new { p.AliasKey, p.UserName });
+            ////        mapping.ToTable("AliasFirstTable");
+
+            ////    })
+            ////    .Map(mapping =>
+            ////    {
+            ////        mapping.Properties(p => new { p.AliasKey, p.Email });
+            ////        mapping.ToTable("AliasSecondTable");
+            ////    });
+            ////modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
+
+            modelBuilder.Entity<Tweet_FluentConfig>()
                 .Map(mapping =>
                 {
-                    mapping.Properties(p => new { p.AliasKey, p.UserName });
-                    mapping.ToTable("AliasFirstTable");
-                    
+                    mapping.Properties(p => new
+                    {
+                        p.Id,
+                        p.Content
+                    });
+                    mapping.ToTable("TweeterFirst");
                 })
                 .Map(mapping =>
                 {
-                    mapping.Properties(p => new { p.AliasKey, p.Email });
-                    mapping.ToTable("AliasSecondTable");
+                    mapping.Properties(p => new
+                    {
+                        p.Id,
+                        p.CreateDate
+                    });
+                    mapping.ToTable("TweeterSc");
                 });
-            modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
-
         }
     }
 }
