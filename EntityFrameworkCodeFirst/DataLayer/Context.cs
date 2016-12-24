@@ -37,7 +37,17 @@ namespace DataLayer
             //base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Alias_FluentConfig>().ToTable("Alias_FluentConfiguration", "FulentConfig");
-            modelBuilder.Entity<Alias_FluentConfig>().Property(p => p.CreateDate).HasColumnName("StartDate").HasColumnOrder(2).HasColumnType("date");
+            modelBuilder.Entity<Alias_FluentConfig>().HasKey(p => p.AliasKey);
+            modelBuilder.Entity<Alias_FluentConfig>()
+                .Property(p => p.CreateDate)
+                .HasColumnName("StartDate")
+                .HasColumnOrder(3)
+                .HasColumnType("date")
+                .IsRequired();
+            modelBuilder.Entity<Alias_FluentConfig>()
+                .Property(p => p.Name)
+                .IsFixedLength() //in db is nchar type
+                .IsMaxLength();
 
         }
     }

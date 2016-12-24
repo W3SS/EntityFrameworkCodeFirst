@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Alias_FluentConfig
     {
-        public int Id { get; set; }
+        public int AliasKey { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
