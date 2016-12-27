@@ -23,21 +23,11 @@ namespace DataLayer
         public DbSet<Alias_FluentConfig> Aliases_FluentConfig { get; set; }
         public DbSet<Tweet_FluentConfig> Tweet_FluentConfig { get; set; }
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Blog>().HasKey(m => m.Id);
-            //modelBuilder.Entity<Blog>().Property(m => m.Title).HasMaxLength(20);
-            //modelBuilder.Entity<Blog>().Property(m => m.BloggerName).IsRequired();
-
-            //modelBuilder.Entity<Post>().HasKey(m => m.Id);
-            //modelBuilder.Entity<Post>().Property(m => m.Content).HasMaxLength(100);
-            //modelBuilder.Entity<Post>().Property(m => m.Title).HasMaxLength(20);
-
-            //base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Alias_FluentConfig>().ToTable("Alias_FluentConfiguration", "FulentConfig");
+            //modelBuilder.Entity<Alias_FluentConfig>().ToTable("Alias_FluentConfiguration", "FulentConfig");
             modelBuilder.Entity<Alias_FluentConfig>().HasKey(p => p.AliasKey);
+            modelBuilder.Entity<Tweet_FluentConfig>().HasKey(p => p.AliasKey);
             modelBuilder.Entity<Alias_FluentConfig>()
                 .Property(p => p.CreateDate)
                 .HasColumnName("StartDate")
@@ -45,17 +35,17 @@ namespace DataLayer
                 .HasColumnType("date")
                 .IsRequired();
             modelBuilder.Entity<Alias_FluentConfig>()
-                .Property(p => p.Name)
-                .IsFixedLength() //in db is nchar type
-                .IsMaxLength();
+                .Property(p => p.Name).HasColumnName("FullName");
+                //.IsFixedLength() //in db is nchar type
+                //.IsMaxLength();
             modelBuilder.ComplexType<Privacy_FluentConfig>().Property(p => p.Test).HasColumnName("TestingPrivacy");
             modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
 
-            //-----------------------------------------------------------------------------------------------------------------------------------
-            // if you would like to use bottom configuration with Alias_FluentConfig as split entity
-            // you should comment code above. 
-            // Because you mapping entity Alias_FluentConfig not once!
-            //-----------------------------------------------------------------------------------------------------------------------------------
+            ////--------------------------------------------------------------------------------------
+            //// if you would like to use bottom configuration with Alias_FluentConfig as split entity
+            //// you should comment code above. 
+            //// Because you mapping entity Alias_FluentConfig not once!
+            ////--------------------------------------------------------------------------------------
             ////modelBuilder.Entity<Alias_FluentConfig>()
             ////    .Map(mapping =>
             ////    {
@@ -70,25 +60,29 @@ namespace DataLayer
             ////    });
             ////modelBuilder.Ignore<PrivacyToIgnore_FluentConfig>();
 
-            modelBuilder.Entity<Tweet_FluentConfig>()
-                .Map(mapping =>
-                {
-                    mapping.Properties(p => new
-                    {
-                        p.Id,
-                        p.Content
-                    });
-                    mapping.ToTable("TweeterFirst");
-                })
-                .Map(mapping =>
-                {
-                    mapping.Properties(p => new
-                    {
-                        p.Id,
-                        p.CreateDate
-                    });
-                    mapping.ToTable("TweeterSc");
-                });
+            //modelBuilder.Entity<Tweet_FluentConfig>()
+            //    .Map(mapping =>
+            //    {
+            //        mapping.Properties(p => new
+            //        {
+            //            p.Id,
+            //            p.Content
+            //        });
+            //        mapping.ToTable("TweeterFirst");
+            //    })
+            //    .Map(mapping =>
+            //    {
+            //        mapping.Properties(p => new
+            //        {
+            //            p.Id,
+            //            p.CreateDate
+            //        });
+            //        mapping.ToTable("TweeterSc");
+            //    });
+
+            modelBuilder.Entity<Alias_FluentConfig>().ToTable("TwiiterAliases");
+            modelBuilder.Entity<Tweet_FluentConfig>().ToTable("TwiiterAliases");
+            modelBuilder.Entity<Alias_FluentConfig>().HasRequired(p => p.TweetWithLazyLoading).WithRequiredPrincipal();
         }
     }
 }

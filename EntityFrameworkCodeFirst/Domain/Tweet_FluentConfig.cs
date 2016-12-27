@@ -8,10 +8,11 @@ namespace Domain
 {
     public class Tweet_FluentConfig
     {
-        public int Id { get; set; }
-        public DateTime CreateDate { get; set; }
+        public int AliasKey { get; set; }
+        //public DateTime CreateDate { get; set; }
         public string Content { get; set; }
         public Alias_FluentConfig Alias { get; set; }
+        public byte[] Avatar { get; set; }
         //public int AliasId { get; set; }
     }
 }
