@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\EmployeeConfiguration.cs" />
+    <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="MyDBInitializer.cs" />
     <Compile Include="MyDBInitializer_DataAnnotationsExample.cs" />

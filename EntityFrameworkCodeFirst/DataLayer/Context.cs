@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DataLayer.Configurations;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -83,6 +84,9 @@ namespace DataLayer
             modelBuilder.Entity<Alias_FluentConfig>().ToTable("TwiiterAliases");
             modelBuilder.Entity<Tweet_FluentConfig>().ToTable("TwiiterAliases");
             modelBuilder.Entity<Alias_FluentConfig>().HasRequired(p => p.TweetWithLazyLoading).WithRequiredPrincipal();
+
+            modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new EmployeeConfiguration());
         }
     }
 }

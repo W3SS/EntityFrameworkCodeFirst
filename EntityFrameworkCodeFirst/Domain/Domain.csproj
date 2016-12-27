@@ -44,9 +44,12 @@
     <Compile Include="Alias_DataAnnotationsExample.cs" />
     <Compile Include="Alias_FluentConfig.cs" />
     <Compile Include="Blog.cs" />
+    <Compile Include="Employee_FluentConfig.cs" />
+    <Compile Include="ExtraProduct.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="PrivacyToIgnore_FluentConfig.cs" />
     <Compile Include="Privacy_FluentConfig.cs" />
+    <Compile Include="Product_FluentConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tweet_DataAnnotationsExample.cs" />
     <Compile Include="Tweet_FluentConfig.cs" />
