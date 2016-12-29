@@ -23,6 +23,7 @@ namespace DataLayer
         public DbSet<Person> Persons { get; set; }
         public DbSet<Alias_FluentConfig> Aliases_FluentConfig { get; set; }
         public DbSet<Tweet_FluentConfig> Tweet_FluentConfig { get; set; }
+        public DbSet<Simple_DataAnnotationsExample> Simple { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

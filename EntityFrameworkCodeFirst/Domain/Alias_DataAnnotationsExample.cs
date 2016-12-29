@@ -12,7 +12,7 @@ namespace Domain
     public class Alias_DataAnnotationsExample
     {
         [Key, Column(Order = 0)]
-        public int AliasKey { get; set; }
+        public int RandomKey { get; set; }
 
         //[Required, ConcurrencyCheck]
         [Required]
